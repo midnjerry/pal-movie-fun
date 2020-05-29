@@ -15,13 +15,15 @@
     limitations under the License.
 --%>
 <%@ page import=" org.superbiz.moviefun.Movie" %>
-<%@ page import="org.superbiz.moviefun.MoviesBean" %>
 <%@ page import="javax.naming.InitialContext" %>
 <%@ page import="java.util.Iterator" %>
 <%@ page import="java.util.List" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%
+  InitialContext initialContext = new InitialContext();
+%>
 <c:set var="language" value="${pageContext.request.locale}"/>
 <fmt:setLocale value="${language}"/>
 
@@ -72,25 +74,13 @@
       <td><b>Director</b></td>
       <td><b>Genre</b></td>
     </tr>
-<c:forEach items="${requestScope.movies}" var="movie">
-  <tr>
-    <td>${ movie.title }</td>
-    <td>${ movie.director }</td>
-    <td>${ movie.genre }</td>
-  </tr>
-</c:forEach>
-    <tr>
-      <td><%=movie.getTitle()%>
-      </td>
-      <td><%=movie.getDirector()%>
-      </td>
-      <td><%=movie.getGenre()%>
-      </td>
-    </tr>
-
-    <%
-      }
-    %>
+    <c:forEach items="${requestScope.movies}" var="movie">
+      <tr>
+        <td>${ movie.title }</td>
+        <td>${ movie.director }</td>
+        <td>${ movie.genre }</td>
+      </tr>
+    </c:forEach>
   </table>
 
   <h2>Continue</h2>

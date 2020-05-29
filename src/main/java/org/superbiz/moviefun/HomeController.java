@@ -1,16 +1,14 @@
 package org.superbiz.moviefun;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import javax.transaction.Transactional;
 import java.util.Map;
 
 @Controller
 public class HomeController {
-    @Autowired
-    private MoviesBean moviesBean;
+
+    private final MoviesBean moviesBean;
 
     public HomeController(MoviesBean moviesBean) {
         this.moviesBean = moviesBean;
@@ -21,7 +19,6 @@ public class HomeController {
         return "index";
     }
 
-    @Transactional
     @GetMapping("/setup")
     public String setup(Map<String, Object> model) {
         moviesBean.addMovie(new Movie("Wedding Crashers", "David Dobkin", "Comedy", 7, 2005));
@@ -33,6 +30,7 @@ public class HomeController {
         moviesBean.addMovie(new Movie("Shanghai Noon", "Tom Dey", "Comedy", 7, 2000));
 
         model.put("movies", moviesBean.getMovies());
+
         return "setup";
     }
 }
