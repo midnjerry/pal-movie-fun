@@ -13,3 +13,6 @@ $ mvn clean package -DskipTests -Dmaven.test.skip=true
 ```
 $ MOVIE_FUN_URL=http://moviefun.example.com mvn test
 ```
+
+Note: My database root user has password, this should be passed in from command line:
+`SPRING_DATASOURCE_PASSWORD=${password} mvn spring-boot:run`
