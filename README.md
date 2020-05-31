@@ -13,3 +13,9 @@ $ mvn clean package -DskipTests -Dmaven.test.skip=true
 ```
 $ MOVIE_FUN_URL=http://moviefun.example.com mvn test
 ```
+
+## Has a cool CSV mapper
+
+```
+import com.fasterxml.jackson.dataformat.csv.CsvMapper;
+```
