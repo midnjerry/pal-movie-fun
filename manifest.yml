@@ -1,0 +1,9 @@
+---
+applications:
+  - name: moviefun
+    path: target/moviefun.war
+    routes:
+      - route: moviefun-jerry.cfapps.io
+    services:
+      - photo-storage
+      - movies-mysql
